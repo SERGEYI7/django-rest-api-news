@@ -190,7 +190,6 @@ class TagList(APIView):
         if not request.query_params:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         tag = self.get_object(**request.query_params.dict())
-        tag_data = tag
         tag.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
